@@ -12,7 +12,9 @@ var gulp = require('gulp'),
 // Build Scripts
 gulp.task( 'js', function(){
 	gulp.src([
+			// jquery
 			'assets/src/js/libs/jquery.min.js',
+			// your-scripts
 			'assets/src/js/jquery.begin.js',
 			'assets/src/js/jquery.app.js',
 			'assets/src/js/jquery.end.js',

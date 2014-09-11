@@ -4,4 +4,4 @@
 	    // Indicate JS 
 	    $('html').removeClass('no-js').addClass('js');
 
-	});
+	}); // document
