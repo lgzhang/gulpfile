@@ -20,7 +20,7 @@ You then also have to have these technologies installed globally (on your comput
 - [gulpjs](http://gulpjs.com/)
 - [BrowserSync](http://www.browsersync.io/)
 - [LessCSS](http://lesscss.org/)
-- [Sass](http://sass-lang.com/) (reqires ruby)
+- [Sass](http://sass-lang.com/) (requires ruby)
 
 And these you must have installed in the directory called "node_modules".
 
@@ -33,3 +33,7 @@ And these you must have installed in the directory called "node_modules".
 - [gulp-rename](https://www.npmjs.org/package/gulp-rename)
 - [gulp-ruby-sass](https://www.npmjs.org/package/gulp-ruby-sass)
 - [gulp-uglify](https://www.npmjs.org/package/gulp-uglify)
+
+## TODOs
+
+- Less has no compiler function in gulpfile.js
