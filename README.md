@@ -4,6 +4,8 @@ This is a quick example to help you setup [gulpjs](http://gulpjs.com/).
 
 ## How to Use
 
+Place this script within your MAMP directory or change the proxy settings in the 'task' function within gulpfile.js.
+
 Open your terminal and cd into this (gulpfile) directory. All you have to do now is to type "gulp" and start writing JavaScript, Less, Sass or add images in assets/src/. Gulp will run when a change occurs and place your compiled and minified files into assets/build/. To exit gulp hit "crtl+c".
 
 Sometimes images that you add to assets/scr/img will not be processed. In that case I exit "gulp watch" and enter "gulp img" into the terminal.

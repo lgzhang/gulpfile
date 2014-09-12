@@ -11,6 +11,6 @@ if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c
 	    // Indicate JS 
 	    $('html').removeClass('no-js').addClass('js');
 
-	});
+	}); // document
 
 })( jQuery );
