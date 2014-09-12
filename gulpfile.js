@@ -1,4 +1,5 @@
 
+// Include Gulp Plugins
 var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
@@ -9,37 +10,49 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	browserSync = require('browser-sync');
 
-// Build Scripts
+// Setup Directories Names
+var sourceDir = 'assets/src/',
+	imgSourceDir = sourceDir + 'img/',
+	jsSourceDir = sourceDir + 'js/',
+	lessSourceDir = sourceDir + 'less/',
+	scssSourceDir = sourceDir + 'scss/';
+var buildDir = 'assets/build/',
+	imgBuildDir = buildDir + 'img/',
+	jsBuildDir = buildDir + 'js/',
+	cssBuildDir = buildDir + 'css/';
+
+// Build JS
 gulp.task( 'js', function(){
 	gulp.src([
-			// jquery
-			'assets/src/js/libs/jquery.min.js',
-			// your-scripts
-			'assets/src/js/jquery.begin.js',
-			'assets/src/js/jquery.app.js',
-			'assets/src/js/jquery.end.js',
+			jsSourceDir + 'libs/jquery.min.js',
+			jsSourceDir + 'jquery.begin.js',
+			jsSourceDir + 'jquery.app.js',
+			jsSourceDir + 'jquery.end.js',
 		])
 		.pipe( plumber() )
 		.pipe( concat('jquery.app.js') )
-		.pipe( gulp.dest('assets/build/js') )
+		.pipe( gulp.dest( jsBuildDir ) )
 		.pipe( rename({suffix:'.min'}) )
 		.pipe( uglify() )
-		.pipe( gulp.dest('assets/build/js') );
-		// .pipe( browserSync.reload({stream:true}) );
+		.pipe( gulp.dest( jsBuildDir ) );
 });
 
-// Build Sass CSS
-// temporary hack: 'sourcemap=none':true
+// Build Scss
+// disable sourcemap hack: sass({'sourcemap=none':true})
 // github.com/sindresorhus/gulp-ruby-sass/issues/113#issuecomment-53778451
 gulp.task( 'sass', function(){
-	gulp.src('assets/src/scss/styles.scss')
+	gulp.src( scssSourceDir + 'styles.scss' )
 		.pipe( plumber() )
-		.pipe( sass({trace:true,'sourcemap=none':true}) )
-		.pipe( gulp.dest('assets/build/css') )
+		.pipe( sass({trace:true}) )
+		.pipe( gulp.dest( cssBuildDir ) );
+});
+
+// Minify CSS
+gulp.task( 'minify', function(){
+	gulp.src( cssBuildDir + 'styles.css' )
 		.pipe( rename({suffix:'.min'}) )
 		.pipe( minify() )
-		.pipe( gulp.dest('assets/build/css') );
-		// .pipe( browserSync.reload({stream:true}) );
+		.pipe( gulp.dest( cssBuildDir ) );
 });
 
 // Optimize Images
@@ -47,33 +60,28 @@ gulp.task( 'img', function(){
 	gulp.src('assets/src/img/*')
 		.pipe( plumber() )
 		.pipe( imagemin() )
-		.pipe( gulp.dest('assets/build/img') );
+		.pipe( gulp.dest( imgBuildDir ) );
 });
 
+// Reload Browser On File Change
 gulp.task('sync', function() {
-    browserSync.init( ['assets/build/**/*'], {
+    browserSync.init( [buildDir + '**/*'], {
         proxy: {
             host: "localhost",
             port: 8888
         }
     });
-  //   browserSync({
-		// proxy: {
-  //           host: "localhost",
-  //           port: 8888
-  //       }
-  //   });
 });
 
 // Gulp Watch
 gulp.task( 'watch', function(){
-	gulp.watch( 'assets/src/js/*.js', ['js'] );
-	gulp.watch( 'assets/src/scss/**/*.scss', ['sass'] );
-	gulp.watch( 'assets/src/img/*', ['img'] );
+	gulp.watch( jsSourceDir + '*.js', ['js'] );
+	gulp.watch( scssSourceDir + '**/*.scss', ['sass'] );
+	gulp.watch( imgSourceDir + '*', ['img'] );
 });
 
 // keep watch at end of array
-gulp.task( 'default', [ 'js', 'sass', 'img', 'sync', 'watch' ] );
+gulp.task( 'default', [ 'js', 'sass', 'minify', 'img', 'sync', 'watch' ] );
 
 
 

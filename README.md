@@ -4,19 +4,17 @@ This is a quick example to help you setup [gulpjs](http://gulpjs.com/).
 
 ## How to Use
 
-Place this script within your MAMP directory or change the proxy settings in the 'task' function within gulpfile.js.
-
 Open your terminal and cd into this (gulpfile) directory. All you have to do now is to type "gulp" and start writing JavaScript, Less, Sass or add images in assets/src/. Gulp will run when a change occurs and place your compiled and minified files into assets/build/. To exit gulp hit "crtl+c".
 
-Sometimes images that you add to assets/scr/img will not be processed. In that case I exit "gulp watch" and enter "gulp img" into the terminal.
+For [BrowserSync](http://www.browsersync.io/) to work, you need to place this script within your MAMP directory or change the proxy settings in the 'sync' function within gulpfile.js.
 
-To better understand how gulp works I recommend checking out [this video series](http://www.youtube.com/playlist?list=PLLnpHn493BHE2RsdyUNpbiVn-cfuV7Fos) by [LevelUpTuts](http://leveluptuts.com/).
+Sometimes images that you add to assets/scr/img while running gulp will not be processed automatically. In that case I recommend you exit gulp and run the "gulp img" task manually.
+
+To learn how gulp works I recommend checking out [this video series](http://www.youtube.com/playlist?list=PLLnpHn493BHE2RsdyUNpbiVn-cfuV7Fos) by [LevelUpTuts](http://leveluptuts.com/).
 
 ## Requirements
 
-- Maybe a Mac. I have not tested this on windows yet.
-
-You then also have to have these technologies installed globally (on your computer that is).
+Have these technologies installed globally, on your computer that is.
 
 - [nodejs](http://nodejs.org/) (install first)
 - [gulpjs](http://gulpjs.com/)
@@ -24,7 +22,7 @@ You then also have to have these technologies installed globally (on your comput
 - [LessCSS](http://lesscss.org/)
 - [Sass](http://sass-lang.com/) (requires ruby)
 
-And these you must have installed in the directory called "node_modules".
+And have these installed in your project's "node_modules" directory.
 
 - [gulpjs](http://gulpjs.com/)
 - [gulp-concat](https://www.npmjs.org/package/gulp-concat)
@@ -35,6 +33,8 @@ And these you must have installed in the directory called "node_modules".
 - [gulp-rename](https://www.npmjs.org/package/gulp-rename)
 - [gulp-ruby-sass](https://www.npmjs.org/package/gulp-ruby-sass)
 - [gulp-uglify](https://www.npmjs.org/package/gulp-uglify)
+
+Please note: I have not tested this project on windows yet.
 
 ## TODOs
 
