@@ -14,7 +14,7 @@ To learn how gulp works I recommend checking out [this video series](http://www.
 
 ## Requirements
 
-Have these technologies installed globally, on your computer that is.
+Have these technologies installed globally – on your computer that is.
 
 - [nodejs](http://nodejs.org/) (install first)
 - [gulpjs](http://gulpjs.com/)
