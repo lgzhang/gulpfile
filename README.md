@@ -6,7 +6,7 @@ This is a quick example to help you setup [gulpjs](http://gulpjs.com/).
 
 Open your terminal and cd into this (gulpfile) directory. All you have to do now is to type "gulp" and start writing JavaScript, Less, Sass or add images in assets/src/. Gulp will run when a change occurs and place your compiled and minified files into assets/build/. To exit gulp hit "crtl+c".
 
-For [BrowserSync](http://www.browsersync.io/) to work, you need to place this script within your MAMP directory or change the proxy settings in the 'sync' function within gulpfile.js.
+For [BrowserSync](http://www.browsersync.io/) to work, you need to access your project through "localhost:8888/gulpfile" or change the proxy settings in the 'sync' function within gulpfile.js.
 
 Sometimes images that you add to assets/scr/img while running gulp will not be processed automatically. In that case I recommend you exit gulp and run the "gulp img" task manually.
 
